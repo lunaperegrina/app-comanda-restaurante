@@ -1,0 +1,43 @@
+{
+    "Fulano": {
+        "0": {
+            "Agua sem gas": 0,
+            "Agua com gas": 0,
+            "Coca-Cola": 5,
+            "Coca-Cola Zero": 0,
+            "Guarana": 3,
+            "Guarana Zero": 1,
+            "Heineken": 7
+        },
+        "1": {
+            "Agua sem gas": 0,
+            "Agua com gas": 0,
+            "Coca-Cola": 0,
+            "Coca-Cola Zero": 0,
+            "Guarana": 0,
+            "Guarana Zero": 1,
+            "Heineken": 0
+        }
+
+    },
+    "Beltrano": {
+        "0": {
+            "Agua sem gas": 0,
+            "Agua com gas": 0,
+            "Coca-Cola": 5,
+            "Coca-Cola Zero": 0,
+            "Guarana": 3,
+            "Guarana Zero": 1,
+            "Heineken": 7
+        },
+        "1": {
+            "Agua sem gas": 0,
+            "Agua com gas": 0,
+            "Coca-Cola": 0,
+            "Coca-Cola Zero": 0,
+            "Guarana": 0,
+            "Guarana Zero": 1,
+            "Heineken": 0
+        }
+    }
+}
