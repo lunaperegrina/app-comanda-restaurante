@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hello_world/app/controller/classes_e_funcoes.dart';
-import 'package:hello_world/main.dart';
 
 import 'newPageArray.dart';
 
