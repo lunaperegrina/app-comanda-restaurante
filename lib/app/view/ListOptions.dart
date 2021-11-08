@@ -1,23 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hello_world/app/controllers/botoes_nota.dart';
-import 'package:hello_world/app/controllers/valores_estaticos.dart';
 
-class NovaListaNotas extends StatefulWidget {
+import '../controller/classes_e_funcoes.dart';
+import '/app/controller/valores_constantes.dart';
+
+class ListOptions extends StatefulWidget {
   @override
-  _NovaListaNotasState createState() => _NovaListaNotasState();
+  _ListOptionsState createState() => _ListOptionsState();
 }
 
-class _NovaListaNotasState extends State<NovaListaNotas> {
+class _ListOptionsState extends State<ListOptions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: GestureDetector(
-            onTap: () {
-              Navigator.pop(context); // Botao de voltar
-            },
-            child: Icon(Icons.arrow_back)),
         title: Text("Bebidas"),
       ),
       body: Container(
@@ -42,38 +38,49 @@ class _NovaListaNotasState extends State<NovaListaNotas> {
                           Expanded(
                             flex: 2,
                             child: Container(
-                              margin: EdgeInsets.only(left: 6, right: 6),
-                              child: OutlinedButton(
-                                onPressed: () {},
-                                child: Text(
-                                    "${listaPrecosBebidas[index].toString()}0 RS",
-                                    style: TextStyle(fontSize: 18)),
-                              ),
+                              child: Text(
+                                  "${listaPrecosBebidas[index].toString()}0 R\$", //Preços das bebidas mostrados aqui
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 18, color: Color(0xFF00AAFF))),
                             ),
                           ),
                           Expanded(
-                            child: ElevatedButton(
+                            child: OutlinedButton(
+                              //Botão para subtrair a quantidade de
+                              onLongPress: () {
+                                setState(() {
+                                  onLongPressSubtrair(index);
+                                });
+                              },
                               onPressed: () {
                                 setState(() {
-                                  botaoDiminuir(index);
+                                  onPressedSubstrair(index);
                                 });
                               },
                               child: Text("-", style: TextStyle(fontSize: 18)),
                             ),
                           ),
                           Expanded(
-                            child: TextButton(
-                              onPressed: () {},
+                            flex: 1,
+                            child: Container(
                               child: Text(
                                   listaQuantidadeColetada[index].toString(),
-                                  style: TextStyle(fontSize: 18)),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 18, color: Color(0xFF00AAFF))),
                             ),
                           ),
                           Expanded(
-                            child: ElevatedButton(
+                            child: OutlinedButton(
+                              onLongPress: () {
+                                setState(() {
+                                  onPressedAdicionar(index);
+                                });
+                              },
                               onPressed: () {
                                 setState(() {
-                                  botaoSomar(index);
+                                  onLongPressAdicionar(index);
                                 });
                               },
                               child: Text("+", style: TextStyle(fontSize: 18)),
@@ -89,16 +96,20 @@ class _NovaListaNotasState extends State<NovaListaNotas> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
-          label: Text("Finalizar ${valorTotalPedidos}0 RS",
+          label: Text("Finalizar ${mostrarValorFinalizar}0 R\$",
               style: TextStyle(fontSize: 16)),
           icon: Icon(Icons.checklist),
           onPressed: () {
-            exportandoBebidas();
+            if (mostrarValorFinalizar > 0) {
+              AtualizarNotas.instance.atualizarNota();
 
-            setState(() {
-              finalizandoNota();
-              Navigator.pop(context);
-            });
+              setState(() {
+                Navigator.pop(context);
+              });
+
+              mostrarValorFinalizar = 0;
+              qtdDeVezesQuePediu++;
+            }
           }),
     );
   }

@@ -1,3 +1,9 @@
+Map<String, int> mapExportandoBebidas = Map();
+Map<int, Map> mapBebidasExportadas = Map();
+
+int qtdDeVezesQuePediu =
+    0; //Numero de pedidos do cliente pra manter a organização
+
 List listaNomeBebidas = [
   //Editar essa lista pra adicionar ou tirar bebidas
   "Agua sem gás",
@@ -9,7 +15,6 @@ List listaNomeBebidas = [
   "Heineken",
   "Bohemia",
 ];
-
 List<double> listaPrecosBebidas = [
   //Editar preços das bebidas. Precisa ter a mesma quantidade q a anterior
   2.5,
@@ -21,7 +26,6 @@ List<double> listaPrecosBebidas = [
   9.00,
   7.00
 ];
-
 List<int> listaQuantidadeColetada = [
   0,
   0,
@@ -33,14 +37,4 @@ List<int> listaQuantidadeColetada = [
   0
 ]; // PRECISA ter a MESMA quantidade de itens q os outros (cria uma função pra deixar isso automatico pfv q sofrimento)
 
-double valorTotalPedidos = 0; // visualização de valor do "Finalizar Pedido"
-
-String testeNomeCLiente = ""; //
-
-int qtdComandas = 0;
-int quantidadePedidos = 0;
-
-Map<int, dynamic> mapComandas = Map(); //Map de Comandas completas
-Map<String, Map> mapComandasClientes = Map(); //Map dos pedidos de cleintes
-Map<int, Map> mapBebidasExportadas = Map(); //Map de pedidos de bebidas
-Map<String, int> mapExportandoBebidas = Map(); //Map de bebidas
+double mostrarValorFinalizar = 0; // visualização de valor em "Finalizar"

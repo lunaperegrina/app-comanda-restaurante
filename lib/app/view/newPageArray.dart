@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:hello_world/app/controllers/valores_estaticos.dart';
-// import 'package:hello_world/app/controllers/valores_estaticos.dart';
-import 'ListOptions.dart';
+import '../controller/classes_e_funcoes.dart';
 
 Map<int, Map> mapVisualizandoNotas = Map();
 
 class NewPageArray extends StatefulWidget {
-  // const NewPageArray({Key? key}) : super(key: key);
-
   String nomeUnicoCliente = "";
   NewPageArray(this.nomeUnicoCliente);
 
@@ -49,6 +45,7 @@ class _NewPageArrayState extends State<NewPageArray> {
       return teste_exibir_valor_appbar;
     }
 */
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Notas ${widget.nomeUnicoCliente}"),
@@ -64,32 +61,37 @@ class _NewPageArrayState extends State<NewPageArray> {
           )
         ],
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Expanded(
-                child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              itemCount: mapBebidasExportadas.length,
-              itemBuilder: (context, index) {
-                return Row(
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: ListTile(
-                        title: Text(
-                          "${mapBebidasExportadas[index]}",
-                          style: TextStyle(),
+      body: AnimatedBuilder(
+        animation: AtualizarNotas.instance,
+        builder: (context, child) {
+          return Container(
+            child: Column(
+              children: [
+                Expanded(
+                    child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  itemCount: AtualizarNotas.instance.test_export_bebidas.length,
+                  itemBuilder: (context, index) {
+                    return Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: ListTile(
+                            title: Text(
+                              "${AtualizarNotas.instance.test_export_bebidas[index]}",
+                              style: TextStyle(),
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                  ],
-                );
-              },
-            )),
-          ],
-        ),
+                      ],
+                    );
+                  },
+                )),
+              ],
+            ),
+          );
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
