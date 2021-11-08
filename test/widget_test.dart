@@ -30,8 +30,41 @@ void main() {
 }
 */
 
+// void main() {
+//   int valor = 5;
+//   String novo = valor.toString();
+//   print(novo);
+// }
+
+Map<int, List> listaDeListas = Map();
+Map<int, List> listaDeListas2 = {};
+
+List<String> lista_1 = ["Fulano", "Beltrano", "Ciclano", "Flavia", "Bruno"];
+List<String> lista_2 = [
+  "Fulano",
+  "Beltrano",
+];
+List<String> lista_3 = [
+  "Fulano",
+  "Beltrano",
+  "Ciclano",
+];
+
+lista(i) {
+  switch (i) {
+    case 1:
+      return lista_1;
+    case 2:
+      return lista_2;
+    case 3:
+      return lista_3;
+  }
+}
+
 void main() {
-  int valor = 5;
-  String novo = valor.toString();
-  print(novo);
+  for (var i = 1; i == 3; i++) {
+    listaDeListas[i] = lista(i);
+  }
+
+  print(listaDeListas);
 }

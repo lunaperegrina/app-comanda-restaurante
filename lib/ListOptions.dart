@@ -85,7 +85,7 @@ class _ListOptionsState extends State<ListOptions> {
                             ),
                           ),
                           Expanded(
-                            child: ElevatedButton(
+                            child: OutlinedButton(
                               //Botão para subtrair a quantidade de
                               onLongPress: () {
                                 setState(() {
@@ -128,7 +128,7 @@ class _ListOptionsState extends State<ListOptions> {
                             ),
                           ),
                           Expanded(
-                            child: ElevatedButton(
+                            child: OutlinedButton(
                               onLongPress: () {
                                 setState(() {
                                   listaQuantidadeColetada[index] += 5;
@@ -169,6 +169,7 @@ class _ListOptionsState extends State<ListOptions> {
                 mapExportandoBebidas[listaNomeBebidas[i]] =
                     listaQuantidadeColetada[i];
               }
+              mapBebidasExportadas;
               print("ANTES:  $mapBebidasExportadas");
               setState(() {
                 print("ANTES:  $mapBebidasExportadas");
@@ -178,6 +179,7 @@ class _ListOptionsState extends State<ListOptions> {
 
                 print("DEPOIS:  $mapBebidasExportadas");
                 // print(mapBebidasExportadas[qtdDeVezesQuePediu]);
+                print(mapBebidasExportadas);
                 qtdDeVezesQuePediu++;
                 print(qtdDeVezesQuePediu);
 

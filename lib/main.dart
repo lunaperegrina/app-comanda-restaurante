@@ -6,9 +6,11 @@ import 'app/view/ListaComandas.dart';
 import 'app/view/ListaNotas.dart';
 import 'ListOptions.dart';
 import 'newPageArray.dart';
+import 'switch_tema.dart';
 
 Map<String, Map> mapComandasClientes = Map();
 
+var aplicarTemaEscuto = ThemeData.light();
 main() {
   runApp(AppWidget());
 }
@@ -16,16 +18,24 @@ main() {
 class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
-      initialRoute: "/ListaComandas",
-      routes: {
-        "/NovaListaNotas": (context) => NovaListaNotas(),
-        "/NovaListaComandas": (context) => NovaListaComandas(),
-        "/ListaComandas": (context) => ListaComandas(),
-        "/ListOptions": (context) => ListOptions(),
-        // "/NewPageArray": (context) => NewPageArray()
+    return AnimatedBuilder(
+      animation: SwitchTema.instance,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+              brightness: SwitchTema.instance.temaEscuro
+                  ? Brightness.dark
+                  : Brightness.light),
+          initialRoute: "/ListaComandas",
+          routes: {
+            "/NovaListaNotas": (context) => NovaListaNotas(),
+            "/NovaListaComandas": (context) => NovaListaComandas(),
+            "/ListaComandas": (context) => ListaComandas(),
+            "/ListOptions": (context) => ListOptions(),
+            // "/NewPageArray": (context) => NewPageArray()
+          },
+        );
       },
     );
   }
@@ -48,10 +58,16 @@ class _ListaComandasState extends State<ListaComandas> {
         appBar: AppBar(
           title: Text("Lista de Comandas"),
           actions: [
+            Switch(
+              value: SwitchTema.instance.temaEscuro,
+              onChanged: (value) {
+                SwitchTema.instance.changeTheme();
+              },
+            ),
             IconButton(
               icon: Icon(Icons.bungalow_outlined),
               onPressed: () {
-                mapBebidasExportadas.clear();
+                // mapBebidasExportadas.clear();
 
                 Navigator.pushNamed(context, "/ListOptions");
               },
