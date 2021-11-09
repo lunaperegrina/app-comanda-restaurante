@@ -22,6 +22,7 @@ class AtualizarNotas extends ChangeNotifier {
   Map<int, Map> test_export_bebidas = {};
 
   atualizarNota() {
+    Map<String, int> mapExportandoBebidas = Map();
     for (var i = 0; i < listaNomeBebidas.length; i++) {
       mapExportandoBebidas[listaNomeBebidas[i]] = listaQuantidadeColetada[i];
     }

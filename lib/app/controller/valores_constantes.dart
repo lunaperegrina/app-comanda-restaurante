@@ -1,4 +1,3 @@
-Map<String, int> mapExportandoBebidas = Map();
 Map<int, Map> mapBebidasExportadas = Map();
 
 int qtdDeVezesQuePediu =

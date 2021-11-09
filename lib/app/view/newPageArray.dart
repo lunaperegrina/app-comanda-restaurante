@@ -14,19 +14,17 @@ class NewPageArray extends StatefulWidget {
 class _NewPageArrayState extends State<NewPageArray> {
   @override
   Widget build(BuildContext context) {
-/*
     teste_funcao(index) {
       print(index);
-      List<String> mostrarDadosNotas = [];
+      List<String> tratarDadosNotasPop = [];
 
-      mapBebidasExportadas[index]!.forEach((key, value) {
+      AtualizarNotas.instance.test_export_bebidas[index]!.forEach((key, value) {
         if (value > 0) {
-          mostrarDadosNotas.add("$key $value \n");
+          tratarDadosNotasPop.add("$key $value \n");
         }
       });
-      return mostrarDadosNotas;
+      return tratarDadosNotasPop;
     }
-    */
 
 /*
     teste_valor_conta_appbar() {
@@ -79,7 +77,7 @@ class _NewPageArrayState extends State<NewPageArray> {
                           flex: 3,
                           child: ListTile(
                             title: Text(
-                              "${AtualizarNotas.instance.test_export_bebidas[index]}",
+                              "${teste_funcao(index)}",
                               style: TextStyle(),
                             ),
                           ),
