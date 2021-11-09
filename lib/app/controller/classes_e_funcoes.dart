@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import '/app/controller/valores_constantes.dart';
 
@@ -74,3 +76,29 @@ onLongPressAdicionar(index) {
 
   mostrarValorFinalizar = mostrarValorFinalizar + listaPrecosBebidas[index];
 }
+
+/* ----- TRATAR MAP PARA VISUALIZAÇÃO EM NEWPAGEARRAY ------- */
+
+tratarMapParaVisualizacao(index) {
+  print(index);
+  List<String> tratarDadosNotasPop = [];
+  String exibirListaNewPageArray = "";
+
+  AtualizarNotas.instance.test_export_bebidas[index]!.forEach((key, value) {
+    if (value > 0) {
+      tratarDadosNotasPop.add("$value  $key \n");
+    }
+  });
+
+  exibirListaNewPageArray = tratarDadosNotasPop.toString();
+
+  exibirListaNewPageArray = exibirListaNewPageArray.replaceAll("[", " ");
+  exibirListaNewPageArray = exibirListaNewPageArray.replaceAll("]", "");
+  exibirListaNewPageArray = exibirListaNewPageArray.trimRight();
+
+  exibirListaNewPageArray = exibirListaNewPageArray.replaceAll(",", "");
+
+  return exibirListaNewPageArray;
+}
+
+/* ----- TRATAR MAP PARA VISUALIZAÇÃO EM NEWPAGEARRAY ------- */

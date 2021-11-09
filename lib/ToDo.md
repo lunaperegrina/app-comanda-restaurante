@@ -5,7 +5,8 @@
 ## Fix bugs
 
 - [x] Os valores da ${teste_export_bebidas}
-- [ ] A forma como a ${teste_export_bebidas} é apresentada
+- [x] A forma como a ${teste_export_bebidas} é apresentada
+- [ ] Apresentar uma comanda diferente ao clicar em uma comanda diferente
 
 ## Adicionar recursos
 
@@ -14,3 +15,4 @@
 - [ ] Valor final da conta no Appbar de ${newPageArray()}
 - [ ] Possibilidade de excluir uma comanda em ${ListaComandas()}
 - [ ] Possibilidade de excluir uma nota em ${NewPageArray()}
+- [ ] Colocar um "Suas notas ficam aqui :D" no ${NewPageArray()}

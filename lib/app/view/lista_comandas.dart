@@ -84,6 +84,7 @@ class _ListaComandasState extends State<ListaComandas> {
                           icon: Icon(Icons.delete),
                         ),
                       ),
+                      Divider(),
                     ],
                   );
                 },

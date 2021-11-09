@@ -14,18 +14,6 @@ class NewPageArray extends StatefulWidget {
 class _NewPageArrayState extends State<NewPageArray> {
   @override
   Widget build(BuildContext context) {
-    teste_funcao(index) {
-      print(index);
-      List<String> tratarDadosNotasPop = [];
-
-      AtualizarNotas.instance.test_export_bebidas[index]!.forEach((key, value) {
-        if (value > 0) {
-          tratarDadosNotasPop.add("$key $value \n");
-        }
-      });
-      return tratarDadosNotasPop;
-    }
-
 /*
     teste_valor_conta_appbar() {
       int teste_exibir_valor_appbar = 0;
@@ -63,6 +51,7 @@ class _NewPageArrayState extends State<NewPageArray> {
         animation: AtualizarNotas.instance,
         builder: (context, child) {
           return Container(
+            padding: EdgeInsets.only(top: 5),
             child: Column(
               children: [
                 Expanded(
@@ -71,17 +60,28 @@ class _NewPageArrayState extends State<NewPageArray> {
                   scrollDirection: Axis.vertical,
                   itemCount: AtualizarNotas.instance.test_export_bebidas.length,
                   itemBuilder: (context, index) {
-                    return Row(
+                    return Column(
                       children: [
-                        Expanded(
-                          flex: 3,
-                          child: ListTile(
-                            title: Text(
-                              "${teste_funcao(index)}",
-                              style: TextStyle(),
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 3,
+                              child: ListTile(
+                                title: Text(
+                                  "${tratarMapParaVisualizacao(index)}",
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ),
                             ),
-                          ),
+                            Expanded(
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: Icon(Icons.delete),
+                              ),
+                            ),
+                          ],
                         ),
+                        Divider()
                       ],
                     );
                   },
