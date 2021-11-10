@@ -17,6 +17,7 @@ class _ListaComandasState extends State<ListaComandas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: Drawer(),
         appBar: AppBar(
           title: Text("Lista de Comandas"),
           actions: [

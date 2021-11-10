@@ -12,9 +12,10 @@ Ainda em produção :)
 
 ### Adicionar recursos
 
-- [ ] SALVAR O JSON NA MEMORIA COM PERSISTENCIA (mas sem internet é complicado)
+- [ ] Adicionar tela de configurações para mudar o tela dark
+- [ ] Colocar um "Suas notas ficam aqui :D" no ${NewPageArray()}
 - [ ] Valor final de cada pedido no end do lado direito em ${newPageArray()}
 - [ ] Valor final da conta no Appbar de ${newPageArray()}
-- [ ] Possibilidade de excluir uma comanda em ${ListaComandas()}
 - [ ] Possibilidade de excluir uma nota em ${NewPageArray()}
-- [ ] Colocar um "Suas notas ficam aqui :D" no ${NewPageArray()}
+- [ ] Possibilidade de excluir uma comanda em ${ListaComandas()}
+- [ ] SALVAR O JSON NA MEMORIA COM PERSISTENCIA (mas sem internet é complicado)
